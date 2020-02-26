@@ -1,0 +1,15 @@
+{
+    "name": "tsybenko/insurance",
+    "authors": [
+        {
+            "name": "tsybenko",
+            "email": "tsybenko.dmitry@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Insurance\\": "src/"
+        }
+    }
+}
