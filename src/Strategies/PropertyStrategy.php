@@ -4,12 +4,12 @@ namespace Insurance\Strategies;
 
 use Insurance\ProductPrice;
 
-class PropertyStrategy extends CalculatorStrategy
+class PropertyStrategy extends BaseStrategy
 {
     public function calculate(): ProductPrice
     {
-        $basePrice = 23.3;
-        $discount = $this->getDiscount();
+        $basePrice = $this->getProduct()->getPrice();
+        $discount = $this->getDiscount()->getValue();
 
         if ($discount > 0) {
             return new ProductPrice(

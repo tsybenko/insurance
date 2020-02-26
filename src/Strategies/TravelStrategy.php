@@ -4,14 +4,6 @@ namespace Insurance\Strategies;
 
 use Insurance\ProductPrice;
 
-class TravelStrategy extends CalculatorStrategy
+class TravelStrategy extends BaseStrategy
 {
-    public function calculate(): ProductPrice
-    {
-        $base = 2.1;
-
-        return new ProductPrice(
-            $base, parent::getDiscount()
-        );
-    }
 }
