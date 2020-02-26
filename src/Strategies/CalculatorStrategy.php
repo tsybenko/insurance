@@ -7,17 +7,17 @@ use Insurance\ProductPrice;
 
 abstract class CalculatorStrategy
 {
-	protected $discount;
+    protected $discount;
 
-	public function __construct(Discount $discount)
-	{
-		$this->discount = $discount->getValue();
-	}
+    public function __construct(Discount $discount)
+    {
+        $this->discount = $discount->getValue();
+    }
 
-	public function getDiscount()
-	{
-		return $this->discount;
-	}
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
 
-	abstract public function calculate(): ProductPrice;
+    abstract public function calculate(): ProductPrice;
 }
