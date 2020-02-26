@@ -4,6 +4,8 @@ namespace Insurance;
 
 class Discount
 {
+    const DEFAULT_VALUE = 0;
+
     private $value;
 
     public function __construct($value)
@@ -23,7 +25,7 @@ class Discount
 
     public static function getByPromo($promo): self
     {
-        if (empty($promo)) return new self(0);
+        if (empty($promo)) return new self(self::DEFAULT_VALUE);
 
         $v = (rand(10, 100)) / 10;
 
