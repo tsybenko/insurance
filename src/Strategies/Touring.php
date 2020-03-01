@@ -2,7 +2,7 @@
 
 namespace Insurance\Strategies;
 
-use Insurance\Package;
+use Insurance\Entities\Package;
 use Insurance\ProductPrice;
 
 class Touring extends Package implements CalculatorStrategy

@@ -1,6 +1,6 @@
 <?php
 
-namespace Insurance;
+namespace Insurance\Entities;
 
 class Discount
 {
@@ -27,7 +27,7 @@ class Discount
     {
         if (empty($promo)) return new self(self::DEFAULT_VALUE);
 
-        $v = (rand(10, 100)) / 10;
+        $v = (rand(1, 4)) / 10;
 
         return new self($v);
     }
