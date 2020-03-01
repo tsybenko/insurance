@@ -2,10 +2,20 @@
 
 namespace Insurance;
 
-class Product
+use Insurance\Strategies\CalculatorStrategy;
+
+abstract class Product
 {
-    public function getPrice()
+    abstract protected function getPackages(): array;
+
+    public function getPackage(string $id): CalculatorStrategy
     {
-        return 2;
+        $packages = $this->getPackages();
+
+        /** @var Package $package */
+        $package = new $packages[$id];
+        $package->setProduct($this);
+
+        return new $package;
     }
 }

@@ -2,25 +2,24 @@
 
 namespace Insurance;
 
-use Insurance\Strategies\CalculatorStrategy;
-
 final class Calculator
 {
-    private $strategy;
+    private $product;
+    private $package;
 
-    public function __construct(CalculatorStrategy $strategy)
+    public function __construct(string $product_id, string $package_id)
     {
-        $this->setStrategy($strategy);
+        $this->product = ProductFactory::getById($product_id);
+        $this->package = $this->product->getPackage($package_id);
     }
 
-    public function setStrategy(CalculatorStrategy $strategy)
+    public static function make(string $product_id, string $package_id): self
     {
-        return $this->strategy = $strategy;
+        return new self($product_id, $package_id);
     }
 
-    public function calculate(): ProductPrice
+    public function calculate(array $data): ProductPrice
     {
-        $strategy = $this->strategy;
-        return $strategy->calculate();
+        return $this->package->calculate($data);
     }
 }

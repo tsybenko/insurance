@@ -6,5 +6,5 @@ use Insurance\ProductPrice;
 
 interface CalculatorStrategy
 {
-    public function calculate(): ProductPrice;
+    public function calculate(array $data): ProductPrice;
 }
